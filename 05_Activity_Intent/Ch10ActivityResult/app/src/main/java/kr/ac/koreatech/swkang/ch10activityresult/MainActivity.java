@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     static final int GET_STRING = 1;
+    static final int GET_NUMBER = 2;
     TextView text;
 
     @Override
@@ -32,7 +33,11 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == GET_STRING) {
             if(resultCode == RESULT_OK) {
                 text.setText(data.getStringExtra("INPUT_TEXT"));
+            } else if(resultCode == RESULT_CANCELED) {
+                //
             }
+        } else if(requestCode == GET_NUMBER) {
+            //
         }
     }
 }
