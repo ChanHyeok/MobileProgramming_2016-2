@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView m_ListView;
     private ArrayAdapter<String> m_Adapter;
+    //private ArrayList<String> values;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         //String[] values = {"하스스톤", "몬스터 헌터", "디아블로", "와우", "리니지", "안드로이드", "아이폰"};
         ArrayList<String> values = new ArrayList<>();
+        //values = new ArrayList<>();
         //values.add("하스스톤");
         //values.add("몬스터 헌터");
 
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
             // add 버튼 클릭한 경우 리스트의 마지막에 새 아이템 추가
             // adapter에 아이템 추가
             m_Adapter.add("new item " + Integer.toString(count + 1));
+            //values.add("new item " + Integer.toString(count + 1));
+            m_Adapter.notifyDataSetChanged();
         } else if(view.getId() == R.id.remove) {
             // remove 버튼 클릭한 경우 리스트의 마지막 아이템을 삭제
             // 삭제할 아이템이 없으면 메시지 출력 후 종료
