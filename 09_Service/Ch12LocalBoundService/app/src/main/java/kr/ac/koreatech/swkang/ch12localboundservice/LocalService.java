@@ -42,5 +42,4 @@ public class LocalService extends Service {
     //*****************************
     // 바인딩된 서비스는 모든 연결이 해제되면 Android 시스템이 서비스를 자동으로 소멸시킴
     // 따라서 서비스가 순전히 바인딩된 서비스인 경우 해당 서비스의 생명주기를 관리하지 않아도 됨
-    // 그래서 onCreate(), onStartCommand(), onDestroy() 메소드를 구현하지 않은 것
 }
