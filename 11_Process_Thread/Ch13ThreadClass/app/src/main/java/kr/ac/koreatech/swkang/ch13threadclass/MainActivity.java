@@ -24,12 +24,11 @@ public class MainActivity extends AppCompatActivity {
             int i = 0;
             for(i=0; i < 20 && running; i++) {
                 // count 값 1 증가
-                mCount++;
-                tv.setText("Count: " + mCount);
+
 
                 try {
                     // thread 1초간 sleep
-                    Thread.sleep(1000);
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -50,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         // 작업 스레드 객체 생성
-        w = new CountThread();
+
 
         // 작업 스레드 시작
-        w.start();
+
 
         running = true;
     }
@@ -67,6 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View vieW) {
         // TextView의 count 값 갱신
-        tv.setText("Count: " + mCount);
+        
     }
 }
