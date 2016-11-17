@@ -5,15 +5,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="첫번째 버튼" />
+        android:text="Number 1"
+        android:id="@+id/textView" />
 
-    <Button
-        android:id="@+id/button2"
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="두번째 버튼" />
+        android:id="@+id/editText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number 2"
+        android:id="@+id/textView2" />
 </LinearLayout>
