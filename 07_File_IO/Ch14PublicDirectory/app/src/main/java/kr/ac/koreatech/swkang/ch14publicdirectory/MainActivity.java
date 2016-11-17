@@ -1,7 +1,9 @@
 package kr.ac.koreatech.swkang.ch14publicdirectory;
 
 import android.annotation.TargetApi;
+import android.content.res.AssetManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,17 +40,17 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(TAG, "this is a file and cannot be read");
             }
         }
-
-        if(musicDir.isDirectory()) {
-
-            Log.i(TAG, "state: " + Environment.getExternalStorageState(musicDir));
-            if(musicDir.canRead()) {
-                Log.i(TAG, "this is directory and can be read");
-            } else {
-                Log.i(TAG, "this is directory but cannot be read");
-                Log.i(TAG, "name and path: " + musicDir.getName() + ", " + musicDir.getAbsolutePath());
-            }
-        }
+//
+//        if(musicDir.isDirectory()) {
+//
+//            Log.i(TAG, "state: " + Environment.getExternalStorageState(musicDir));
+//            if(musicDir.canRead()) {
+//                Log.i(TAG, "this is directory and can be read");
+//            } else {
+//                Log.i(TAG, "this is directory but cannot be read");
+//                Log.i(TAG, "name and path: " + musicDir.getName() + ", " + musicDir.getAbsolutePath());
+//            }
+//        }
 
         //File files[];
         //int num = 0;
@@ -69,11 +71,28 @@ public class MainActivity extends AppCompatActivity {
         //    e.printStackTrace();
         //}
 
+        String assetFileNames[] = {};
+        AssetManager am = getAssets();
+        try {
+            assetFileNames = am.list("assets/Music/");
+            Log.i(TAG, "assets list");
+            for(String assetFileName: assetFileNames) {
 
-        MediaPlayer mediaPlayer = new MediaPlayer();
+
+                Log.i(TAG, "file name: " + assetFileName);
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+        mediaPlayer = new MediaPlayer();
         try {
             //mediaPlayer.setDataSource(files[0].getAbsolutePath());
-            mediaPlayer.setDataSource(musicDir.getAbsolutePath() + "/maid.mp3");
+            //mediaPlayer.setDataSource(musicDir.getAbsolutePath() + "/maid.mp3");
+            //mediaPlayer.setDataSource("/data/media/0/Music/maid.mp3");
+            mediaPlayer.setDataSource(this, Uri.parse("android.resource://kr.ac.koreatech.swkang.ch14publicdirectory/raw/maid"));
         } catch(IOException e) {
             e.printStackTrace();
         }
