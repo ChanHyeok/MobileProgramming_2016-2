@@ -111,7 +111,11 @@ public class MainActivity extends AppCompatActivity {
         } catch(SecurityException e) {
                 e.printStackTrace();
         }
-     
+
+        // 아래 코드는 위에서 musicDir.listFiles()의 결과가 null이 아니고 하나 이상의 mp3 파일이 존재하는 것을 전제로 함
+        // 즉, files 배열이 null이거나 빈 배열이라면 아래 files[0].getAbsolutePath()에서 에러가 발생할 것임
+        // 그러면 당연히 mediaPlayer.setDataSource()도 성공하지 못 할 것임
+        // API 사용 예로 참고할 것
         mediaPlayer = new MediaPlayer();
         try {
             Log.i(TAG, "the first file path: " + files[0].getAbsolutePath());
