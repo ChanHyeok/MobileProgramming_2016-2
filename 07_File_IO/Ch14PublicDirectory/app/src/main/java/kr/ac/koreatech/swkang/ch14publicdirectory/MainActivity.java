@@ -111,9 +111,7 @@ public class MainActivity extends AppCompatActivity {
         } catch(SecurityException e) {
                 e.printStackTrace();
         }
-        
-        // 아 코 위에 musicDir mp3 파ㄹ 있 것ㅡ 전 
-        // 만ㅑ files null이 파ㄹ 없 files  배ㄹㅣㅏㅕ 아 코에 에  것
+     
         mediaPlayer = new MediaPlayer();
         try {
             Log.i(TAG, "the first file path: " + files[0].getAbsolutePath());
